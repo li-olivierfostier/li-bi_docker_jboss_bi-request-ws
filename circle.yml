@@ -1,0 +1,10 @@
+machine:
+  services:
+    - docker
+dependencies:
+  override:
+    - docker info
+    - docker build -t ofostier/li_bi-request-ws .
+test:
+  override:
+    - docker run -it ofostier/li_bi-request-ws locale-gen en_US.UTF-8 | grep up-to-date
