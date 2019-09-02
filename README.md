@@ -1,31 +1,17 @@
 # LOGIC-IMMO
+# bi-request-ws
 [ ![logo](https://github.com/li-olivierfostier/li-bi_docker_jboss_bi-request-ws/blob/master/logic-immo.png?raw=true)]
 (http://www.logic-immo.com/)
 
 
 # Information
 
-This image is used to set the locale to en_US.UTF-8.
-It is used as the base image for other projects.
+This image is used to setup a Webservice to LIPRO and give some statistic for customers
 
 The Docker builds on [CircleCI](https://circleci.com) :
 
-* You get "Successfully built"
-
 * But, when you test `locale-gen en_US.UTF-8`, it failed [![Circle CI](https://circleci.com/gh/li-olivierfostier/docker_ubuntu.svg?style=shield)]
-(https://circleci.com/gh/li-olivierfostier/docker_ubuntu)
-
-* You can see this error in the log when you attempt to change the locale from an Ubuntu image :
-
-```
-Step 3 : RUN locale-gen en_US.UTF-8 && echo 'LANG="en_US.UTF-8"' > /etc/default/locale
- ---> Running in b24799cb6c0a
-Generating locales...
-cannot change mode of new locale archive: No such file or directory
-  en_US.UTF-8... failed
-Generation complete.
- ---> 7f9b8ce08b3c
- ```
+(https://circleci.com/gh/li-olivierfostier/li-bi_docker_jboss_bi-request-ws)
 
 The base docker image :
 
@@ -33,11 +19,11 @@ The base docker image :
 
 The GitHub project :
 
-  * [li-olivierfostier/docker-ubuntu](https://github.com/li-olivierfostier/docker-ubuntu/)
+  * [li-olivierfostier/li-bi_docker_jboss_bi-request-ws](https://github.com/li-olivierfostier/li-bi_docker_jboss_bi-request-ws/)
 
 The Docker Hub :
 
-  * [li-olivierfostier/ubuntu/](https://registry.hub.docker.com/u/li-olivierfostier/ubuntu/)
+  * [li-olivierfostier/ubuntu/](https://registry.hub.docker.com/u/li-olivierfostier/li-bi_docker_jboss_bi-request-ws/)
 
 
 
@@ -45,20 +31,53 @@ The Docker Hub :
 You can clone this project and build with docker command :
 
 ```
-git clone https://github.com/li-olivierfostier/docker-ubuntu.git \
+git clone https://github.com/li-olivierfostier/li-bi_docker_jboss_bi-request-ws.git \
 && cd docker-ubuntu \
-&& docker build -t li-olivierfostier/ubuntu .
+&& docker build -t li-olivierfostier/bi-request-ws .
 ```
 
-You can build directly from the [GitHub project](https://github.com/li-olivierfostier/docker-ubuntu/) :
+You can build directly from the [GitHub project](https://github.com/li-olivierfostier/li-bi_docker_jboss_bi-request-ws/) :
 
 ```
 docker build -t li-olivierfostier/ubuntu github.com/pascalgrimaud/docker-ubuntu.git
 ```
 
-Alternately, you can pull the image from [Docker Hub](https://registry.hub.docker.com/u/li-olivierfostier/ubuntu/) :
+Alternately, you can pull the image from [Docker Hub](https://registry.hub.docker.com/u/li-olivierfostier/bi-request-ws/) :
 
 ```
 docker pull li-olivierfostier/ubuntu
+```
+
+# Usage
+
+Quick start with binding to port 8080, 9990 and random password :
+
+```
+docker run -d -p 8080:8080 -p 9990:9990 ofostier/jboss-as-711
+```
+
+To get the password :
+
+```
+docker logs <container id>
+```
+
+Start and set a specific password for JBoss admin user :
+
+```
+docker run -d -p 8080:8080 -p 9990:9990 -e JBOSS_PASS="pass" \
+ofostier/jboss-as-711
+```
+
+If you forget the admin password, delete the file .password and restart the container :
+
+```
+docker exec -it <container id> rm /.password
+```
+
+# Check WS
+You can know access WS throught this URL
+```
+http://MYSERVERIP:8080/bi-request-ws/rest/statistique/visualisation/clientcmmFS/0001482145/21?univers=1
 ```
 
