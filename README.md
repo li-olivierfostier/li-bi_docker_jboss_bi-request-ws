@@ -8,9 +8,7 @@
 
 This image is used to setup a Webservice to LIPRO and give some statistic for customers
 
-The Docker builds on [CircleCI](https://circleci.com) :
-
-* But, when you test `locale-gen en_US.UTF-8`, it failed [![Circle CI](https://circleci.com/gh/li-olivierfostier/docker_ubuntu.svg?style=shield)]
+[![CircleCI](https://circleci.com/gh/li-olivierfostier/li-bi_docker_jboss_bi-request-ws.svg?style=shield)](https://circleci.com/gh/li-olivierfostier/li-bi_docker_jboss_bi-request-ws)
 (https://circleci.com/gh/li-olivierfostier/li-bi_docker_jboss_bi-request-ws)
 
 The base docker image :
