@@ -1,5 +1,5 @@
 # ubuntu
-[ ![logo](https://github.com/li-olivierfostier/docker_ubuntu/blob/master/ubuntu.png?raw=true)]
+[ ![logo](https://github.com/li-olivierfostier/li-bi_docker_jboss_bi-request-ws/blob/master/logo_li.jpg?raw=true)]
 (http://www.ubuntu.com/)
 
 
