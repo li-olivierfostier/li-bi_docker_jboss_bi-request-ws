@@ -1,6 +1,6 @@
-# ubuntu
-[ ![logo](https://github.com/li-olivierfostier/li-bi_docker_jboss_bi-request-ws/blob/master/logo_li.jpg?raw=true)]
-(http://www.ubuntu.com/)
+# LOGIC-IMMO
+[ ![logo](https://github.com/li-olivierfostier/li-bi_docker_jboss_bi-request-ws/blob/master/logic-immo.png?raw=true)]
+(http://www.logic-immo.com/)
 
 
 # Information
